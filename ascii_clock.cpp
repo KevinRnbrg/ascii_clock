@@ -1,6 +1,3 @@
-// https://gist.github.com/yuanqing/ffa2244bd134f911d365
-// https://github.com/servetgulnaroglu/cube.c/blob/master/cube.c
-
 #include <iostream>
 #include <ctime>
 #include <thread>
@@ -275,16 +272,9 @@ int main() {
 		string timerTime;
 		string clockTime = "";
 		int stopwatchTime;
-		string text;
 
 		while (1) {
-			/* cout << "\x1b[2J";
-			ifstream dataFileR("data.txt");
-			text = "";
-			while (getline(dataFileR, text)) {
-				cout << text << endl;
-			}
-			dataFileR.close(); */
+			cout << "\x1b[2J";
 			cout << "" << endl;
 			cout << "1: clock" << endl;
 			cout << "2: timer" << endl;
@@ -295,28 +285,10 @@ int main() {
 			cin >> selection;
 	
 			if (selection == 1) { //clock
-				
-				fstream file;
-				file.open("data.txt");
-				string lineText;
-				getline(file, lineText);
-				file.close();
-				int step = lineText.find("a");
-
-				file.open("data.txt");
-				file.ignore(step+1);
-				file << 1; // make dynamic
-				file.close();
-
-
 				context.setStrategy(&clockStrategy);
 				context.displayStrategy(clockTime);
 
 			} else if (selection == 2) { // timer
-				ofstream dataFileW("data.txt");
-				dataFileW << "timerstrategy + 1";
-				dataFileW.close();
-
 				timerTime = "";
 				cout << "Time: " << endl;
 				cin >> timerTime;
@@ -337,11 +309,8 @@ int main() {
 				context.setStrategy(&stopwatchStrategy);
 				context.displayStrategy(clockTime);
 			} else {
-				//dataFileR.close();	
 				break;
 			}
 		}
-		/* dataFileW.close(); */
         return 0;
 }
-
