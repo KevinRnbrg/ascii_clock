@@ -12,13 +12,13 @@ using namespace std;
 string getAsciiArtNum(char c, int num) {
 string result;
 	switch(c) {
-			case '0':
+		case '0':
 		{
 			string zeroRows[5] = {" 0000 ", "00  00", "00  00", "00  00", " 0000 "};
 			result = zeroRows[num];
 			break;
 		}
-			case '1':
+		case '1':
 		{
 			string oneRows[5] = {"1111  ", "  11  ", "  11  ", "  11  ", "111111"};
 			result = oneRows[num];
